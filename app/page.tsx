@@ -1,12 +1,13 @@
-import Icons from '@/components/icons'
-import { PageHeader, PageHeaderHeading, PageHeaderDescription } from '@/components/typografy/heading'
+
 import Link from 'next/link'
+import Scroll from '@/components/core/socialmedia'
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
 
-      <PageHeader className="pb-8">
+      <Scroll />
+      {/* <PageHeader className="pb-8">
         <PageHeaderHeading>Arthur Henrique</PageHeaderHeading>
         <PageHeaderDescription>
           Enthusiastic learner • Computer scientist • Python developer • Software business analyst • Unix-like system user
@@ -19,7 +20,7 @@ export default function Home() {
           <Icons.Codepen className='w-8 text-black' />
           <Icons.StackOverflow className='w-7 text-black' />
         </div>
-      </PageHeader>
+      </PageHeader> */}
       <div className="w-full relative flex place-items-center items-center justify-center">
 
       </div>
