@@ -1,26 +1,28 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { motion, useAnimate } from "framer-motion"
 
 import { MoonIcon, SunIcon, MixIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils"
-import { useSetNextTheme } from "@/hooks/useSetNextTheme"
+import { useCycleTheme } from "@/hooks/useCycleTheme"
 
 
 type RadixReactIcon = typeof DEFAULT_ICON
 
 const DEFAULT_ICON = SunIcon
 
-export const THEME_ICONS: Record<string, RadixReactIcon> = {
-    light: SunIcon,
-    dark: MoonIcon,
-    bright: MixIcon,
-}
+export const THEME_ICONS: RadixReactIcon[] = [
+    SunIcon,
+    MoonIcon,
+    MixIcon,
+]
 
 export function ThemeToggle({ className, ...props }: React.HTMLAttributes<HTMLButtonElement>) {
-    const { theme, setNextTheme } = useSetNextTheme()
+    const { index, theme, cycleTheme } = useCycleTheme()
+    const [scope, animate] = useAnimate()
     const [mounted, setMounted] = useState(false)
 
     // useEffect only runs on the client, so now we can safely show the UI
@@ -32,17 +34,36 @@ export function ThemeToggle({ className, ...props }: React.HTMLAttributes<HTMLBu
         return null
     }
 
-    const Icon = THEME_ICONS[theme!] ?? DEFAULT_ICON
+    const Icon = THEME_ICONS[index]
 
     return (
-        <Button
-            variant="ghost"
-            className={cn("w-9 px-0", className)}
-            {...props}
-            onClick={() => setNextTheme()}
-        >
-            <Icon className="w-5 h-5" />
-            <span className="sr-only">Toggle theme</span>
-        </Button>
+        <>
+            <Button
+                id="theme-toggle"
+                variant="ghost"
+                className={cn("w-9 px-0", className)}
+                {...props}
+                onClick={() => {
+                    animate(scope.current, {
+                        opacity: [0, 0.25, 0.5, 0.75, 1],
+                        scale: [0, 10, 50, 100, 150],
+                        transition: {
+                            duration: 2
+                        }
+                    })
+                    cycleTheme()
+                }}
+            >
+                <Icon className="w-5 h-5" />
+                <span className="sr-only">Toggle theme</span>
+            </Button>
+            <motion.div
+                className={cn(
+                    'w-10 h-10 fixed top-8 right-8',
+                    'z-[-1] rounded-full bg-background',
+                )}
+                ref={scope}
+            />
+        </>
     )
 }
