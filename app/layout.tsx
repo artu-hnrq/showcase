@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Providers } from '@/components/providers'
+import { ThemeToggle } from '@/components/theme/toggle'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,9 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased scroll-smooth",
+        "transition-all duration-1000",
         fontSans.variable
       )}>
-        {children}
+        <Providers>
+          <ThemeToggle className="fixed top-8 right-8" />
+          {children}
+        </Providers>
       </body>
     </html>
   )
