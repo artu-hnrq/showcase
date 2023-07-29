@@ -18,12 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        "min-h-screen bg-background font-sans antialiased scroll-smooth",
-        "transition-all duration-1000",
+        "min-h-screen bg-background font-sans antialiased",
+        "scroll-smooth transition-all duration-1000",
+        "overflow-hidden",
         fontSans.variable
       )}>
         <Providers>
-          <ThemeToggle className="fixed top-8 right-8" />
+          <ThemeToggle className="" />
           {children}
         </Providers>
       </body>

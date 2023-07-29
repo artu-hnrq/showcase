@@ -5,7 +5,7 @@ import { LinkedIn } from './linkedin'
 import { StackOverflow } from './stack-overflow'
 import { Twitter } from './twitter'
 
-export default {
+const Icons = {
     Codepen,
     GitHub,
     Gmail,
@@ -13,3 +13,7 @@ export default {
     StackOverflow,
     Twitter,
 }
+
+export default Icons
+
+export type IconName = keyof typeof Icons

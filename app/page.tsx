@@ -6,7 +6,7 @@ export default function Home() {
 
       <Headline />
 
-      <div className="w-full relative flex place-items-center items-center justify-center">
+      <div className="w-full relative flex place-items-center items-center justify-center bg-primary">
 
       </div>
 

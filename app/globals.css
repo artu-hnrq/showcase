@@ -108,7 +108,5 @@
 
   body {
     @apply bg-background text-foreground;
-    transition-duration: 1000ms;
-    animation-duration: 1000ms;
   }
 }

@@ -30,7 +30,7 @@ export function Headline({ className, ...props }: React.HTMLAttributes<HTMLDivEl
                 </PageHeaderDescription>
             </motion.div>
 
-            <SocialmediaLinks />
+            <SocialmediaLinks icons={['GitHub', "LinkedIn", "Codepen", "StackOverflow", "Twitter", "Gmail"]} />
 
         </PageHeader>
     )
