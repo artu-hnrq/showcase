@@ -1,7 +1,7 @@
-import Icons from './icons'
+import Icons, {type IconName} from './icons'
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
-    name: keyof typeof Icons
+    name: IconName
 }
 
 export function Icon({ name, ...props }: IconProps) {

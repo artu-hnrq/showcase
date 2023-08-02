@@ -5,7 +5,6 @@ import React from "react"
 
 import { type IconName } from '@/components/icons'
 import { ThemedIcon } from "@/components/theme/icon"
-import { cn } from "@/lib/utils"
 
 
 export function SocialmediaLinks({ icons }: { icons: Array<IconName> }) {
@@ -23,19 +22,8 @@ export function SocialmediaLinks({ icons }: { icons: Array<IconName> }) {
                         transition={{ delay: 1 + i * 0.2 }}
                         key={i}
                     >
-                        <motion.div
-                            whileHover={{
-                                y: -5,
-                                scale: 1.2
-                            }}
-                        >
-                            <ThemedIcon
-                                name={name}
-                                className={cn(
-                                    "w-7 md:w-8",
-                                    "text-muted-foreground"
-                                )}
-                            />
+                        <motion.div whileHover={{ y: -5, scale: 1.2 }}>
+                            <ThemedIcon name={name} />
                         </motion.div>
                     </motion.button>
                 )

@@ -25,7 +25,7 @@ export function Headline({ className, ...props }: React.HTMLAttributes<HTMLDivEl
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
             >
-                <PageHeaderDescription>
+                <PageHeaderDescription className="transition ease-linear duration-500">
                     Enthusiastic learner • Computer scientist • Python developer • Software business analyst • Unix-like system user
                 </PageHeaderDescription>
             </motion.div>
